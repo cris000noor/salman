@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Table Data</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table, th, td {
+      border: 1px solid black;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .buttons {
+      margin-bottom: 20px;
+    }
+    .buttons button {
+      padding: 10px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="buttons">
+    <button onclick="window.location.href='/create'">Create Table</button>
+    <button onclick="window.location.href='/delete'">Delete Table</button>
+    <button onclick="window.location.href='/data'">Home</button>
+    <button onclick="window.location.href='/data'">Get Data</button>
+  </div>
+
+  <h1>My Table Data</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Request IP</th>
+        <th>Request OS</th>
+        <th>Request Time</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+        <% data.forEach(function(row) { %>
+          <tr>
+            <td><%= row.id %></td>
+            <td><%= row.username %></td>
+            <td><%= row.password %></td>
+            <td><%= row.requestIP %></td>
+            <td><%= row.requestOS %></td>
+            <td><%= row.requestTime %></td>
+          </tr>
+        <% }); %>
+  
+    </tbody>
+  </table>
+</body>
+</html>

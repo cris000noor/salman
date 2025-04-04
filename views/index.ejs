@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+   <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full height of the viewport */
+            margin: 0;
+        }
+        iframe {
+            width: 80%; /* Adjust width as needed */
+            height: 80%; /* Adjust height as needed */
+            border: none; /* Remove border */
+        }
+    </style>
+
+<script>
+    setTimeout(function() {
+         const username = '<%= data %>'; // Get the query parameter from EJS
+         const redirectUrl = username ? `/load/?abcd=${username}` : '/load';
+         window.location.href = redirectUrl; // Redirect to the new URL
+     }, 3000); // 3000 milliseconds = 3 seconds
+ </script>
+
+</head>
+<body>
+    <object data="../123.pdf" style="height: 800px; width:1200px;">
+
+
+
+
+</body>
+</html>
